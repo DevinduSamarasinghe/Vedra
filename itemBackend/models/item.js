@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
+// Create Schema
 const itemSchema = new Schema({
   name: {
     type: String,
@@ -21,20 +22,16 @@ const itemSchema = new Schema({
     },
     reviewers: [
       {
-        type: new Schema(
-          {
-            comment: {
-              type: String,
-              required: true,
-            },
-            rate: {
-              type: Number,
-              required: true,
-            },
-          },
-          { timestamps: true }
-        ),
+        comment: {
+          type: String,
+          required: true,
+        },
+        rate: {
+          type: Number,
+          required: true,
+        },
       },
+      { timestamps: true },
     ],
   },
   image: [
@@ -57,6 +54,7 @@ const itemSchema = new Schema({
   },
 });
 
+// Create collection and add schema
 const Item = mongoose.model("Item", itemSchema);
 
 export default Item;
